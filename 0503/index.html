@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/animatecss/3.5.1/animate.min.css">
+    <style>
+        .gallery img{
+            width: 500px;
+        }
+        .thumbs img {
+            width: 100px;
+        }
+        .active {
+            opacity: .5;
+/*            border:2px solid #f00; */
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="jquery.jcarousellite.min.js"></script>
+    <script>
+        $(function(){
+            $(".thumbs").jCarouselLite({
+                auto:1500,
+                visible:5
+            });
+            $(".thumbs").find("a").click(function(){
+                var imgs = $(this).find("img").attr("src");
+                console.log(imgs);
+                $(".gallery").find("img").attr("src",imgs); 
+
+                $(".thumbs").find("img").removeClass("active");
+                $(this).find("img").addClass("active");
+            });
+            
+        })  
+    </script>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img src="images/01.jpg" class="animated">
+    </div>
+    <div class="thumbs">
+       <ul>
+            <li><a href="javascript:;"><img src="images/01.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="images/02.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="images/03.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="images/04.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="images/05.jpg" alt=""></a></li>
+        </ul>
+    </div>
+</body>
+</html>
